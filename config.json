@@ -1,0 +1,15 @@
+{
+  "defaultIndex": "/index.html",
+  "rootFolder": "./public",
+  "types": {
+    "html": "text/html",
+    "htm": "text/html",
+    "jpg": "image/jpeg",
+    "jpeg": "image/jpeg",
+    "png": "image/png",
+    "svg": "image/svg+xml",
+    "css": "text/css",
+    "js": "text/javascript",
+    "json": "application/json"
+  }
+}

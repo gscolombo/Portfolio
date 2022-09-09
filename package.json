@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-server",
+  "version": "1.0.0",
+  "description": "Server to portfolio administration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "gscolombo",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "mongodb": "^4.9.1"
+  }
+}
