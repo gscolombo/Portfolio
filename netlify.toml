@@ -1,8 +1,8 @@
 [build]
-    command = "npm start"
     publish = "public"
 [dev]
-    command = "npm run dev"
     publish = "public"
-    framework = "#custom"
-    targetPort = 3000
+    autoLaunch = false
+[functions]
+    directory = "api/"
+    node_bundler = "esbuild"
