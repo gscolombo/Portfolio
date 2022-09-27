@@ -28,6 +28,7 @@ exports.handler = async (event) => {
   const connectionSuccess = new Promise((resolve) => {
     transporter.verify((error) => {
       if (error) {
+        response.body.error = error;
         resolve(false);
       } else {
         resolve(true);
@@ -65,7 +66,7 @@ exports.handler = async (event) => {
     }
   } else {
     response.statusCode = 500;
-    response.body.error = "Não foi possível conectar ao servidor SMTP.";
+    response.body.message = "Não foi possível conectar ao servidor SMTP.";
   }
 
   response.body = JSON.stringify(response.body);
