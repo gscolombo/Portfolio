@@ -1,10 +1,8 @@
-const { MongoClient } = require("mongodb");
 const queryDatabase = require("./queryDatabase");
 
-module.exports = async (request, url) => {
+module.exports = async (request, client) => {
   const { path, httpMethod, queryStringParameters, body } = request;
   const collection = path.substring(path.lastIndexOf("/") + 1);
-  const client = new MongoClient(url);
 
   try {
     // Configure database and collection

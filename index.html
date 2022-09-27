@@ -1,12 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Play&family=Rajdhani:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Gabriel S. Colombo</title>
   </head>
-  <body>
-    <h1>Hello World!</h1>
+  <body style="background-color: black; overflow-y: hidden">
+    <div class="loading">
+      <img src="img/loading.svg" alt="Ícone de carregamento" />
+      <p>Carregando...</p>
+    </div>
+    <div class="background">
+      <canvas id="bg"></canvas>
+      <svg class="svg-background-filter">
+        <rect width="100%" height="100%" fill="#000000" opacity="0.5" />
+      </svg>
+    </div>
+    <div class="mobileMenu">
+      <button class="sandwich">
+        <svg class="svg-sandwich-container" width="28px" height="28px">
+          <rect
+            class="sandwich-bar1"
+            width="100%"
+            height="3px"
+            fill="white"
+            transform-origin="center"
+          />
+          <rect
+            class="sandwich-bar2"
+            width="100%"
+            height="3px"
+            fill="white"
+            y="9px"
+            transform-origin="center"
+          />
+          <rect
+            class="sandwich-bar3"
+            width="100%"
+            height="3px"
+            fill="white"
+            y="18px"
+            transform-origin="center"
+          />
+        </svg>
+      </button>
+      <svg class="svg-circle-menu-container" viewBox="0 0 100 100">
+        <clipPath id="mask">
+          <path
+            id="clip-path"
+            d="M 100 0
+           H 22
+           C 25 37.5 50 75 100 78
+           Z"
+          />
+        </clipPath>
+
+        <circle
+          class="svg-circle"
+          cx="100"
+          cy="0"
+          r="75"
+          fill="#6b0f1a"
+          stroke="#d8d5d6"
+          stroke-width="2px"
+          opacity="0.95"
+          clip-path="url(#mask)"
+        />
+      </svg>
+      <a id="about">Sobre mim</a>
+      <a id="portfolio">Portfólio</a>
+      <a id="contact">Contato</a>
+    </div>
+    <section id="entrance">
+      <img class="logo" src="./img/personal_logo.png" alt="Logo" />
+      <h1>Gabriel Colombo</h1>
+      <svg class="bar">
+        <rect width="85%" height="1px" x="7.5%" fill="#6b0f1a" />
+      </svg>
+      <h3>
+        <strong>Desenvolvedor</strong>
+      </h3>
+      <div class="icons">
+        <img src="./img/pc.svg" alt="Ícone de computador" />
+      </div>
+      <button>
+        <p>Portfólio</p>
+        <img src="./img/arrow.svg" alt="Seta transparente de borda vermelha" />
+      </button>
+    </section>
+    <section id="about">
+      <h3>Sobre mim</h3>
+      <svg class="bar">
+        <rect width="50%" height="1px" x="25%" fill="#6b0f1a" />
+      </svg>
+      <img src="./img/profile.jpg" alt="Foto de perfil" />
+      <p>
+        Logo após a conclusão da graduação em Biologia pela Universidade Católica de Brasília - UCB, em junho de 2020, dei início à transição de minha carreira para a área de tecnologia e desenvolvimento. 
+        <br><br>Meu TCC exigiu que algumas análises estatísticas fossem feitas com a linguagem R e essa foi a porta de entrada para os meus estudos de programação. Desde aquele ano, tenho estudado desenvolvimento web e me aprofundado em aspectos gerais da computação. 
+        <br><br>Em 2022, ingressei no curso de Engenharia da Computação na Universidade de Brasília - UnB para me aprimorar ainda mais nesse universo.
+      </p>
+      <ul>
+        <li>3 anos de experiências com pesquisa científica</li>
+        <li>Familiaridade tanto com desenvolvimento front-end quanto back-end</li>
+        <li>Dedicado, proativo e persistente na resolução de problemas</li>
+      </ul>
+    </section>
+    <section id="portfolio">
+      <h3>Portfólio</h3>
+      <svg class="bar">
+        <rect width="50%" height="1px" x="25%" fill="#6b0f1a" />
+      </svg>
+      <div class="portfolio-wrapper">
+        <div class="grid"></div>
+      </div>
+    </section>
+    <section id="contact">
+      <h3>Entre em contato</h3>
+      <svg class="bar">
+        <rect width="65%" height="1px" x="17.5%" fill="#6b0f1a" />
+      </svg>
+      <ul class="contact-info">
+        <li>
+          <img src="./img/email.svg" alt="Ícone de carta" />
+          gscolombo404@gmail.com
+        </li>
+        <li>
+          <img src="./img/phone.svg" alt="Ícone de telefone" />
+          (61) 99433-9545
+        </li>
+        <li>
+          <img src="./img/pin.svg" alt="Ícone de pin de localização" />
+          Brasília - DF
+        </li>
+      </ul>
+      <form>
+        <input type="text" id="name" name="name" placeholder="Nome" />
+        <input type="email" id="email" name="email" placeholder="E-mail" />
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Escreva sua mensagem"
+        ></textarea>
+        <button type="button">Enviar</button>
+      </form>
+    </section>
+    <footer>
+      <svg class="bar">
+        <rect width="80%" height="1px" x="10%" fill="#d8d5d6" />
+      </svg>
+      <p>Desenvolvido por Gabriel S. Colombo</p>
+      <div class="footer-icons">
+        <img src="./img/github-svgrepo-com.svg" alt="Ícone do Github" />
+        <img src="./img/linkedin-svgrepo-com.svg" alt="Ícone do Linkedin" />
+        <img src="./img/instagram-svgrepo-com.svg" alt="Ícone do Instagram" />
+      </div>
+    </footer>
+    <script type="module" src="bundle.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      window.scrollTo(0, 0); // Start document at the top of the page
+    </script>
   </body>
 </html>

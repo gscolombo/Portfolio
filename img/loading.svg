@@ -1,0 +1,46 @@
+<svg viewBox="-20 -20 140 100" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css">
+        <![CDATA[
+            @keyframes rotatet1 {
+                from {
+                    transform: rotate(0deg);
+                } to {
+                    transform: rotate(360deg);
+                }
+            }
+            @keyframes rotatet2 {
+                from {
+                    transform: rotate(0deg) scale(0.5);
+                } to {
+                    transform: rotate(300deg) scale(0.5);
+                }
+            }
+            @keyframes rotatet3 {
+                from {
+                    transform: rotate(0deg) scale(0.25);
+                } to {
+                    transform: rotate(270deg) scale(0.25);
+                }
+            }
+            .t1, .t2, .t3 {
+                transform-box: fill-box;
+                transform-origin: center 33.3333%;
+            }
+            .t1 {
+                animation: rotatet1 5s infinite reverse linear;
+            }
+            .t2 {
+                animation: rotatet2 2.5s infinite alternate ease-in-out;
+            }
+            .t3 {
+                animation: rotatet3 2s infinite alternate-reverse ease-in-out;
+            }
+        ]]>]
+    </style>
+    <!-- Triangle 1 -->
+    <polygon class="t1" points="0,0, 100,0 50,86.6" fill="black" stroke="#6b0f1a" transform-origin="center"/>
+    <!-- Triangle 2 -->
+    <polygon class="t2" points="0,0, 100,0 50,86.6" fill="#d8d5d6" stroke="#6b0f1a" stroke-width="2" />
+    <!-- Triangle 3 -->
+    <polygon class="t3" points="0,0, 100,0 50,86.6" fill="#black" stroke="#6b0f1a" stroke-width="4" />
+</svg>

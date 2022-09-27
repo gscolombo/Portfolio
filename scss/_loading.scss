@@ -1,0 +1,61 @@
+@keyframes removeBackground {
+  from {
+    background-color: #000000;
+    backdrop-filter: blur(10px);
+  }
+  to {
+    backdrop-filter: blur(0px);
+    background-color: transparent;
+    z-index: -1;
+  }
+}
+
+@keyframes disappear {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    transform: rotate(-90deg) scale(0);
+  }
+}
+
+@keyframes erase {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+div.loading {
+  position: absolute;
+  z-index: 3;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: #000000;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s 0.5s;
+  img {
+    width: 50%;
+    transition: all 0.5s;
+  }
+  p {
+    @include typo(18, $cwhite, "sec");
+  }
+  &.concluded {
+    backdrop-filter: blur(0px);
+    background-color: transparent;
+    z-index: -1;
+    img {
+      animation: disappear 0.5s ease-in-out forwards;
+    }
+    p {
+      animation: erase 0.25s linear forwards !important;
+    }
+  }
+}

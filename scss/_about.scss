@@ -1,0 +1,36 @@
+section#about {
+  img {
+    max-height: 50vh;
+    min-width: 90vw;
+    background-color: $cwhite;
+    margin: 20px auto;
+    clip-path: circle(45%);
+    object-fit: cover;
+  }
+  p {
+    background-color: $red;
+    padding: 20px;
+    border-radius: 5px;
+    @include typo(18, $cwhite, "sec");
+    text-align: left;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 20px auto 0 auto;
+    gap: 36px;
+    li {
+      align-items: center;
+      @include typo(24, $cwhite, "sec");
+      list-style-type: "/> ";
+      list-style-position: inside;
+      font-variant: small-caps;
+      &::marker {
+        font-size: 20px;
+      }
+    }
+  }
+}

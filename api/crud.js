@@ -22,11 +22,11 @@ module.exports = {
 
   /** Create documents **/
   post: async (collection, data) => {
-    const id = await collection.insertOne(JSON.parse(data));
+    const result = await collection.insertOne(JSON.parse(data));
 
     return {
       message: "Document created successfully",
-      id: id,
+      id: result.insertedId,
     };
   },
 
@@ -42,7 +42,6 @@ module.exports = {
     );
 
     if (updatedDocument.value) {
-      response.message = response.updatedDocuments = updatedDocument.value;
       return {
         message: `Document with ID ${query._id} from ${name} collection updated succesfully`,
         updatedDocument: updatedDocument.value,

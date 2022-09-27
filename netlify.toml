@@ -1,5 +1,11 @@
+[build]
+    publish = "./"
+    command = "npm start"
 [dev]
+    command = "npm run dev"
     autoLaunch = false
+    targetPort = 8080
+    publish = "./"
 [functions]
     directory = "api/"
     node_bundler = "esbuild"

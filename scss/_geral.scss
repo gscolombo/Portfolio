@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  max-width: 100vw;
+  &.noScroll {
+    overflow-y: hidden;
+  }
+}
+
+.background {
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: -1;
+  max-height: 100vh;
+  .svg-background-filter {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    backdrop-filter: blur(1px);
+  }
+  canvas {
+    min-width: 120vw;
+    overflow: none;
+  }
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+section {
+  min-height: 100vh;
+  padding: 48px 0;
+  // Section header
+  h3 {
+    @include typo(28, $cwhite, "main");
+    text-align: center;
+  }
+  .bar {
+    @include bar;
+  }
+}

@@ -1,0 +1,99 @@
+@keyframes sandwichBar1 {
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(9px) rotate(0deg);
+  }
+  0% {
+    transform: translateY(9px) rotate(45deg);
+  }
+}
+
+@keyframes sandwichBar2 {
+  100% {
+    transform: scaleX(1);
+  }
+  0% {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes sandwichBar3 {
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0deg);
+  }
+  0% {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+@keyframes sandwichBar1Active {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(9px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(9px) rotate(45deg);
+  }
+}
+
+@keyframes sandwichBar2Active {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes sandwichBar3Active {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+.sandwich {
+  padding: 20px;
+  position: fixed;
+  top: 25px;
+  z-index: 2;
+  right: calc(5vw - 10px);
+  .sandwich-bar1 {
+    transform-box: fill-box;
+    animation: sandwichBar1 0.5s forwards;
+  }
+  .sandwich-bar2 {
+    transform-box: fill-box;
+    animation: sandwichBar2 1s forwards;
+  }
+  .sandwich-bar3 {
+    transform-box: fill-box;
+    animation: sandwichBar3 0.5s forwards;
+  }
+  &.active {
+    .sandwich-bar1 {
+      transform-box: fill-box;
+      animation: sandwichBar1Active 0.5s forwards;
+    }
+    .sandwich-bar2 {
+      transform-box: fill-box;
+      animation: sandwichBar2Active 1s forwards;
+    }
+    .sandwich-bar3 {
+      transform-box: fill-box;
+      animation: sandwichBar3Active 0.5s forwards;
+    }
+  }
+}

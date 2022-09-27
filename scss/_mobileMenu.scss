@@ -1,0 +1,62 @@
+@use "sass:math";
+@import "sandwich";
+
+@keyframes appearAnchor {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.mobileMenu {
+  position: fixed;
+  transition: backdrop-filter, background-color 0.25s;
+  z-index: 1;
+  .svg-circle-menu-container {
+    display: block;
+    z-index: -1;
+    path {
+      transform-box: fill-box;
+      transform-origin: 100% 0;
+      transform: rotate(90deg);
+      transition: transform 0.25s;
+    }
+  }
+  a {
+    display: none;
+    opacity: 0;
+  }
+  &.active {
+    .svg-circle-menu-container path {
+      transform: rotate(0deg);
+    }
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    a {
+      display: inline-block;
+      position: fixed;
+      animation: appearAnchor 0.25s forwards;
+      transition: all 0.25s;
+      @include typo(24, $cblack, "sec");
+      font-size: min(6.4vw, 24px);
+      @for $n from 0 through 2 {
+        &:nth-of-type(#{$n + 1}) {
+          top: (40 + 60 * $n) + px;
+          $angle: (30 * $n) * (calc(math.$pi / 180));
+          right: (
+              (120 + (60 * $n)) * math.cos($angle) - 96 * math.sin($angle)
+            ) +
+            px;
+          animation-delay: 0.15s * $n;
+        }
+      }
+      &.active {
+        color: $cwhite;
+      }
+    }
+  }
+}
