@@ -1,6 +1,19 @@
 section#contact {
   min-height: fit-content;
   padding: 48px 0;
+  .loading {
+    top: 0;
+    min-height: 120vh;
+    background-color: #000000aa;
+    &.unshow {
+      display: none;
+    }
+  }
+  .return-message {
+    @include typo(18, $cwhite, "sec");
+    text-align: center;
+    animation: erase 0.5s 0.25s linear reverse;
+  }
   ul.contact-info {
     display: flex;
     flex-direction: column;
@@ -41,6 +54,13 @@ section#contact {
     button {
       @include button(28);
       min-width: 80%;
+    }
+    input,
+    textarea,
+    button {
+      &:disabled {
+        opacity: 0.5;
+      }
     }
   }
 }
