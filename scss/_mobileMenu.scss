@@ -13,6 +13,9 @@
 }
 
 .mobileMenu {
+  @include mq("desktop") {
+    display: none;
+  }
   position: fixed;
   transition: backdrop-filter, background-color 0.25s;
   z-index: 1;

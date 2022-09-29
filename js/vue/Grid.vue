@@ -1,17 +1,23 @@
 <script>
-import setPortfolioGrid from "../modules/portfolioGrid.js";
+import setPortfolioGrid from '../modules/portfolioGrid.js';
+import carousel from '../modules/carousel.js';
+import navMenu from '../modules/navMenu';
 
 export default {
   async created() {
-    const url = location.origin + "/.netlify/functions/db/works";
+    const url = location.origin + '/.netlify/functions/db/works';
     const res = await fetch(url);
     this.works = (await res.json()).documents;
+  },
+  beforeCreate() {
+    this.mobile = innerWidth < 720;
   },
   data() {
     return {
       iframeLoaded: false,
       workSelected: null,
       works: this.works,
+      carouselStarted: false,
     };
   },
   computed: {
@@ -20,18 +26,26 @@ export default {
     },
   },
   updated() {
-    setPortfolioGrid();
-    if (this.workSelected) document.body.classList.add("noScroll");
+    if (this.mobile) {
+      setPortfolioGrid();
+    } else {
+      navMenu();
+      if (!this.carouselStarted) {
+        carousel();
+        this.carouselStarted = true;
+      }
+    }
+    if (this.workSelected) document.body.classList.add('noScroll');
   },
   methods: {
     closeDetails(event) {
       const details = event.currentTarget.parentElement;
-      details.classList.add("closing");
+      details.classList.add('closing');
 
       setTimeout(() => {
         this.workSelected = null;
         this.iframeLoaded = false;
-        document.body.classList.remove("noScroll");
+        document.body.classList.remove('noScroll');
       }, 500);
     },
   },
@@ -44,13 +58,42 @@ export default {
     <p>Carregando projetos...</p>
   </div>
   <div
+    v-if="mobile"
     class="work"
     v-for="work in worksLoaded"
     :key="work._id"
-    @click="workSelected = work"
+    :style="{ pointerEvents: this.workSelected ? 'none' : 'all' }"
+    @click="
+      () => {
+        if (this.mobile) {
+          workSelected = work;
+        }
+      }
+    "
   >
     <img :src="work.dataURL" />
     <p>{{ work.title }}</p>
+    <button v-if="!mobile" @click="workSelected = work">Ver detalhes</button>
+  </div>
+  <div class="slide">
+    <div
+      v-if="!mobile"
+      class="work"
+      v-for="work in worksLoaded"
+      :key="work._id"
+      :style="{ pointerEvents: this.workSelected ? 'none' : 'all' }"
+      @click="
+        () => {
+          if (this.mobile) {
+            workSelected = work;
+          }
+        }
+      "
+    >
+      <img :src="work.dataURL" />
+      <p>{{ work.title }}</p>
+      <button v-if="!mobile" @click="workSelected = work">Ver detalhes</button>
+    </div>
   </div>
   <div class="details" v-if="workSelected" :class="{ show: workSelected }">
     <img @click="closeDetails" class="cross" src="img/cross.svg" alt="Fechar" />

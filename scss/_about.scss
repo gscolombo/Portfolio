@@ -2,7 +2,6 @@ section#about {
   img {
     max-height: 50vh;
     min-width: 90vw;
-    background-color: $cwhite;
     margin: 20px auto;
     clip-path: circle(45%);
     object-fit: cover;
@@ -11,10 +10,14 @@ section#about {
     background-color: $red;
     padding: 20px;
     border-radius: 5px;
-    @include typo(18, $cwhite, "sec");
+    @include typo(18, $cwhite, 'sec');
     text-align: left;
     max-width: 80%;
     margin: 0 auto;
+    @include mq('desktop') {
+      margin-top: 50px;
+      max-width: 100%;
+    }
   }
   ul {
     display: flex;
@@ -24,12 +27,55 @@ section#about {
     gap: 36px;
     li {
       align-items: center;
-      @include typo(24, $cwhite, "sec");
-      list-style-type: "/> ";
+      @include typo(24, $cwhite, 'sec');
+      list-style-type: '/> ';
       list-style-position: inside;
       font-variant: small-caps;
       &::marker {
         font-size: 20px;
+      }
+    }
+  }
+  @include mq('desktop') {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: fit-content(100%) 1fr;
+    overflow-y: visible;
+    .header {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      width: 80%;
+      margin: 0 auto;
+      h3 {
+        @include typo(48, $cwhite, 'main');
+        text-align: left;
+      }
+      svg rect {
+        width: 100%;
+        transform: translateX(-25%);
+      }
+    }
+    img {
+      position: absolute;
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+      min-width: 100%;
+      min-height: 100%;
+      margin: 0;
+      object-fit: cover;
+      clip-path: polygon(0 0, 100% 10%, 100% 100%, 25% 110%);
+    }
+    .text {
+      max-width: 80%;
+      margin: 0 auto;
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      p {
+        @include typo(20, $cwhite, 'sec');
+      }
+      ul {
+        max-width: 100%;
       }
     }
   }

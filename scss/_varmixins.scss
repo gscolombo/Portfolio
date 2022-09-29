@@ -39,3 +39,20 @@ $sec_font: "Play", sans-serif;
   border-top: 1px solid $red;
   border-bottom: 1px solid $red;
 }
+
+// Responsiveness
+@mixin mq($type: "desktop") {
+  @if $type == "desktop" {
+    @media screen and (min-width: ( calc(1024 / 16) + rem)) {
+      @content;
+    }
+  } @else if $type == "tablet" {
+    @media screen and (min-width: ( calc(640 / 16) + rem)) {
+      @content;
+    }
+  } @else if $type == "mobile" {
+    @media screen and (min-width: ( calc(480 / 16) + rem)) {
+      @content;
+    }
+  }
+}

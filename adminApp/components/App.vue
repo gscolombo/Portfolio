@@ -103,19 +103,21 @@ img {
   grid-template-rows: fit-content(100%) 1fr;
 }
 
-h1 {
-  @include typo(48, $cwhite, "main");
-  text-align: center;
-  padding-top: 100px;
-}
+.upper-panel-container {
+  h1 {
+    @include typo(48, $cwhite, "main");
+    text-align: center;
+    padding-top: 100px;
+  }
 
-.buttons-wrapper {
-  margin: 0 auto;
-  display: flex;
-  gap: 40px;
-  justify-content: space-evenly;
-  margin-top: 50px;
-  padding: 0 12.5% 40px 12.5%;
-  border-bottom: 1px solid $red;
+  .buttons-wrapper {
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    padding: 0 12.5% 40px 12.5%;
+    border-bottom: 1px solid $red;
+  }
 }
 </style>

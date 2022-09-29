@@ -21,6 +21,15 @@
 }
 
 section#portfolio {
+  @include mq('desktop') {
+    h3 {
+      @include typo(36, $cwhite, 'main');
+    }
+    svg rect {
+      width: 25%;
+      transform: translateX(12.5%);
+    }
+  }
   .portfolio-wrapper {
     display: flex;
     flex-direction: column;
@@ -47,7 +56,7 @@ section#portfolio {
         transform: rotate(-90deg);
       }
       p {
-        @include typo(16, $cwhite, "sec");
+        @include typo(16, $cwhite, 'sec');
       }
     }
   }
@@ -59,14 +68,60 @@ section#portfolio {
     min-width: 100%;
     padding: 0 20px;
     position: relative;
+    @include mq('desktop') {
+      margin: 0;
+      padding: 0;
+    }
+    .slide {
+      display: flex;
+      gap: 0px;
+      align-items: center;
+      min-width: 100%;
+    }
     .loading {
       position: relative;
-      bottom: 25%;
+      bottom: 25vh;
       background-color: transparent;
       backdrop-filter: blur(0px);
+      img {
+        width: 25%;
+      }
     }
     .work {
       display: none;
+      @include mq('desktop') {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        text-align: center;
+        min-width: 50%;
+        transform: scale(0.8);
+        animation: showWork 0.5s;
+        filter: saturate(0.5) blur(1px);
+        transition: all 0.25s;
+        img {
+          border: 1px solid $red;
+        }
+        p {
+          @include typo(28, $cwhite, 'sec');
+          width: 75%;
+          margin: 20px auto;
+          padding-bottom: 20px;
+          border-bottom: 1px solid $red;
+        }
+        button {
+          @include button(24);
+          max-width: fit-content;
+          padding: 6px 20px;
+          margin: 0 auto;
+        }
+        &.on {
+          transform: scale(1);
+          filter: saturate(1) blur(0px);
+          cursor: move;
+        }
+      }
       &.show {
         display: flex;
         flex-direction: column;
@@ -78,7 +133,7 @@ section#portfolio {
           border: 1px solid $red;
         }
         p {
-          @include typo(16, $cwhite, "sec");
+          @include typo(16, $cwhite, 'sec');
           width: fit-content;
           margin: 10px auto;
           padding-bottom: 10px;
@@ -99,6 +154,11 @@ section#portfolio {
         z-index: 2;
         background-color: black;
         animation: showWork 0.5s ease-in-out forwards;
+        @include mq('desktop') {
+          z-index: 3;
+          grid-template-columns: 75% 25%;
+          grid-template-rows: 100%;
+        }
         &.closing {
           animation: unshowWork 0.5s ease-in-out forwards;
         }
@@ -110,6 +170,9 @@ section#portfolio {
           background-color: #000000 + AA;
           &.concluded {
             background-color: transparent;
+          }
+          @include mq('desktop') {
+            min-width: 100%;
           }
         }
         img {
@@ -132,15 +195,21 @@ section#portfolio {
           display: grid;
           grid-template-rows: 10% 70% 1fr 1fr;
           padding-bottom: 20px;
+          @include mq('desktop') {
+            padding-top: 40px;
+            grid-template-rows: fit-content(100%) 1fr fit-content(100%) fit-content(
+                100%
+              );
+          }
           h4 {
-            @include typo(18, $cwhite, "sec");
+            @include typo(18, $cwhite, 'sec');
             text-align: center;
             margin: 10px;
             padding-bottom: 10px;
             border-bottom: 1px solid $red;
           }
           p {
-            @include typo(18, $cwhite, "sec");
+            @include typo(18, $cwhite, 'sec');
             margin: 10px 20px;
           }
           button {
@@ -150,6 +219,7 @@ section#portfolio {
             padding: 6px 20px;
             margin: 0 auto;
             gap: 10px;
+            z-index: 4;
             a {
               text-decoration: none;
               color: $cwhite;

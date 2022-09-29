@@ -80,38 +80,82 @@
       <a id="contact">Contato</a>
     </div>
     <section id="entrance">
-      <img class="logo" src="./img/personal_logo.png" alt="Logo" />
-      <h1>Gabriel Colombo</h1>
-      <svg class="bar">
-        <rect width="85%" height="1px" x="7.5%" fill="#6b0f1a" />
-      </svg>
-      <h3>
-        <strong>Desenvolvedor</strong>
-      </h3>
-      <div class="icons">
-        <img src="./img/pc.svg" alt="Ícone de computador" />
+      <img class="mobile-logo" src="./img/personal_logo.png" alt="Logo" />
+      <nav>
+        <img class="logo" src="./img/personal_logo.png" alt="Logo" />
+        <div class="links">
+          <a id="about">Sobre mim</a>
+          <a id="portfolio">Portfólio</a>
+          <a id="contact">Contato</a>
+          <div class="sm">
+            <a href=""
+              ><img src="./img/github-svgrepo-com.svg" alt="Ícone do Github"
+            /></a>
+            <a href=""
+              ><img
+                src="./img/linkedin-svgrepo-com.svg"
+                alt="Ícone do Linkedin"
+            /></a>
+            <a href="">
+              <img
+                src="./img/instagram-svgrepo-com.svg"
+                alt="Ícone do Instagram"
+            /></a>
+          </div>
+        </div>
+      </nav>
+      <div class="wrapper">
+        <div class="me">
+          <img src="img/me too.png" alt="" />
+        </div>
+        <div class="text">
+          <h1>Gabriel Colombo</h1>
+          <svg class="bar">
+            <rect width="85%" height="1px" x="7.5%" fill="#6b0f1a" />
+          </svg>
+          <h3>
+            <img src="./img/pc.svg" alt="Ícone de computador" />
+            <strong>Desenvolvedor</strong>
+          </h3>
+          <button>
+            <p>Portfólio</p>
+            <img
+              src="./img/arrow.svg"
+              alt="Seta transparente de borda vermelha"
+            />
+          </button>
+        </div>
       </div>
-      <button>
-        <p>Portfólio</p>
-        <img src="./img/arrow.svg" alt="Seta transparente de borda vermelha" />
-      </button>
     </section>
     <section id="about">
-      <h3>Sobre mim</h3>
-      <svg class="bar">
-        <rect width="50%" height="1px" x="25%" fill="#6b0f1a" />
-      </svg>
-      <img src="./img/profile.jpg" alt="Foto de perfil" />
-      <p>
-        Logo após a conclusão da graduação em Biologia pela Universidade Católica de Brasília - UCB, em junho de 2020, dei início à transição de minha carreira para a área de tecnologia e desenvolvimento. 
-        <br><br>Meu TCC exigiu que algumas análises estatísticas fossem feitas com a linguagem R e essa foi a porta de entrada para os meus estudos de programação. Desde aquele ano, tenho estudado desenvolvimento web e me aprofundado em aspectos gerais da computação. 
-        <br><br>Em 2022, ingressei no curso de Engenharia da Computação na Universidade de Brasília - UnB para me aprimorar ainda mais nesse universo.
-      </p>
-      <ul>
-        <li>3 anos de experiências com pesquisa científica</li>
-        <li>Familiaridade tanto com desenvolvimento front-end quanto back-end</li>
-        <li>Dedicado, proativo e persistente na resolução de problemas</li>
-      </ul>
+      <div class="header">
+        <h3>Sobre mim</h3>
+        <svg class="bar">
+          <rect width="50%" height="1px" x="25%" fill="#6b0f1a" />
+        </svg>
+      </div>
+      <img src="img/profile.jpg" alt="Foto de perfil" />
+      <div class="text">
+        <p>
+          Logo após a conclusão da graduação em Biologia pela Universidade
+          Católica de Brasília - UCB, em junho de 2020, dei início à transição
+          de minha carreira para a área de tecnologia e desenvolvimento.
+          <br /><br />Meu TCC exigiu que algumas análises estatísticas fossem
+          feitas com a linguagem R e essa foi a porta de entrada para os meus
+          estudos de programação. Desde aquele ano, tenho estudado
+          desenvolvimento web e me aprofundado em aspectos gerais da computação.
+          <br /><br />Em 2022, ingressei no curso de Engenharia da Computação na
+          Universidade de Brasília - UnB para me aprimorar ainda mais nesse
+          universo.
+        </p>
+        <ul>
+          <li>3 anos de experiências com pesquisa científica</li>
+          <li>
+            Familiaridade tanto com desenvolvimento front-end quanto back-end
+          </li>
+          <li>Dedicado, proativo e persistente na resolução de problemas</li>
+        </ul>
+      </div>
     </section>
     <section id="portfolio">
       <h3>Portfólio</h3>
@@ -143,7 +187,7 @@
       </ul>
       <div class="loading unshow">
         <img src="img/loading.svg" alt="Ícone de carregamento" />
-        <p>Enviando mensagem</p>
+        <p>Enviando mensagem...</p>
       </div>
       <form>
         <input type="text" id="name" name="name" placeholder="Nome" />
@@ -161,6 +205,7 @@
         <rect width="80%" height="1px" x="10%" fill="#d8d5d6" />
       </svg>
       <p>Desenvolvido por Gabriel S. Colombo</p>
+      <p>&copy Todos os direitos reservados.</p>
       <div class="footer-icons">
         <img src="./img/github-svgrepo-com.svg" alt="Ícone do Github" />
         <img src="./img/linkedin-svgrepo-com.svg" alt="Ícone do Linkedin" />
