@@ -1,15 +1,15 @@
 <script>
-import Background from "./Background.vue";
-import AddProjectButton from "./addProjectButton.vue";
-import eraseAllButton from "./eraseAllButton.vue";
-import WorkGrid from "./WorkGrid.vue";
-import GridPlaceholder from "./GridPlaceholder.vue";
-import WorkPanel from "./WorkPanel.vue";
-import { computed } from "@vue/reactivity";
+import Background from './Background.vue';
+import AddProjectButton from './addProjectButton.vue';
+import eraseAllButton from './eraseAllButton.vue';
+import WorkGrid from './WorkGrid.vue';
+import GridPlaceholder from './GridPlaceholder.vue';
+import WorkPanel from './WorkPanel.vue';
+import { computed } from '@vue/reactivity';
 
 export default {
   async created() {
-    const url = location.origin + "/.netlify/functions/db/works";
+    const url = location.origin + '/.netlify/functions/db/works';
     const res = await fetch(url);
     const works = (await res.json()).documents || [];
     this.works = works;
@@ -31,17 +31,17 @@ export default {
     // Update work's grid
     updateWorkGrid(res, method) {
       switch (method) {
-        case "POST":
+        case 'POST':
           this.works.push(res);
           this.newWork = false;
           break;
-        case "PATCH":
+        case 'PATCH':
           const updatedWorkIndex = this.works.findIndex(
             (work) => work.id == res.id
           );
           this.works[updatedWorkIndex] = res;
           break;
-        case "DELETE":
+        case 'DELETE':
           this.works = res || [];
       }
     },
@@ -83,17 +83,12 @@ export default {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   vertical-align: baseline;
-}
-
-img {
-  max-width: 100%;
-  display: block;
 }
 
 .wrapper {
@@ -105,7 +100,7 @@ img {
 
 .upper-panel-container {
   h1 {
-    @include typo(48, $cwhite, "main");
+    @include typo(48, $cwhite, 'main');
     text-align: center;
     padding-top: 100px;
   }

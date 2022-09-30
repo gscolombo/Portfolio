@@ -1,35 +1,35 @@
 <script>
-import WorkPanel from "./WorkPanel.vue";
+import WorkPanel from './WorkPanel.vue';
 
 export default {
-  props: ["works", "openPanel"],
-  emits: ["updateGrid", "closePanel"],
+  props: ['works', 'openPanel'],
+  emits: ['updateGrid', 'closePanel'],
   data() {
     return {
       workSelected: null,
       workTemplate: {
-        title: "",
-        description: "",
-        iframeLink: "",
-        repoLink: "",
-        dataURL: "",
+        title: '',
+        description: '',
+        iframeLink: '',
+        repoLink: '',
+        dataURL: '',
       },
     };
   },
   methods: {
     // Close work panel
     closeWorkPanel(refs) {
-      refs.panel.classList.add("closing");
+      refs.panel.classList.add('closing');
 
       setTimeout(() => {
-        this.$emit("closePanel");
+        this.$emit('closePanel');
         this.workSelected = null;
         this.workTemplate = {
-          title: "",
-          description: "",
-          iframeLink: "",
-          repoLink: "",
-          dataURL: "",
+          title: '',
+          description: '',
+          iframeLink: '',
+          repoLink: '',
+          dataURL: '',
         };
       }, 500);
     },
@@ -50,6 +50,7 @@ export default {
         }
       "
       :key="work._id"
+      :id="work._id"
       :style="{
         animationDelay: 0.125 * works.indexOf(work) + 's',
       }"
@@ -89,7 +90,7 @@ ul.work-grid {
   }
   scrollbar-width: 0;
   p {
-    @include typo(24, $cwhite, "sec");
+    @include typo(24, $cwhite, 'sec');
     grid-column: 2 / 4;
     display: flex;
     align-items: center;
@@ -97,16 +98,19 @@ ul.work-grid {
     justify-content: center;
   }
   li {
+    list-style: none;
     padding-bottom: 10px;
     opacity: 0.75;
     transition: all 0.25s;
     cursor: pointer;
     text-align: center;
-    @include typo(16, $cwhite, "sec");
+    @include typo(16, $cwhite, 'sec');
     transform: scale(0);
     animation: appearGrowing 0.5s forwards ease;
     img {
       margin-bottom: 10px;
+      display: block;
+      max-width: 100%;
     }
     &:hover {
       opacity: 1;

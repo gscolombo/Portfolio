@@ -1,21 +1,9 @@
-@keyframes removeBackground {
-  from {
-    background-color: #000000;
-    backdrop-filter: blur(10px);
-  }
-  to {
-    backdrop-filter: blur(0px);
-    background-color: transparent;
-    z-index: -1;
-  }
-}
-
 @keyframes disappear {
   from {
-    transform: rotate(0deg) scale(1);
+    transform: rotate3d(0, 0, 1, 0deg) scale3d(1, 1, 1);
   }
   to {
-    transform: rotate(-90deg) scale(0);
+    transform: rotate3d(0, 0, 1, -90deg) scale3d(0, 0, 1);
   }
 }
 
@@ -30,7 +18,7 @@
 
 div.loading {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   min-width: 100vw;
   min-height: 100vh;
   background-color: #000000;
@@ -43,9 +31,12 @@ div.loading {
   img {
     width: 50%;
     transition: all 0.5s;
+    @include mq('desktop') {
+      width: 200px;
+    }
   }
   p {
-    @include typo(18, $cwhite, "sec");
+    @include typo(18, $cwhite, 'sec');
   }
   &.concluded {
     backdrop-filter: blur(0px);

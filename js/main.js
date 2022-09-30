@@ -1,6 +1,5 @@
 import bg from 'poly-bg';
 import mobileMenu from './modules/mobileMenu.js';
-import portfolioGrid from './modules/portfolioGrid.js';
 import initVueApp from '../adminApp/index.js';
 import initVueGrid from './vue/index.js';
 import sendMail from './modules/sendMail.js';
@@ -35,7 +34,6 @@ if (location.pathname == '/') {
     const events = ['touchstart', 'click'];
     events.forEach((event) =>
       btn.addEventListener(event, (e) => {
-        e.preventDefault();
         let distance = document.querySelector('section#portfolio').offsetTop;
         if (innerWidth > 720) distance -= innerHeight * 0.08;
         scrollTo({ top: distance, left: 0, behavior: 'smooth' });

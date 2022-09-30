@@ -1,7 +1,7 @@
 <script>
-import LoadingModal from "./LoadingModal.vue";
-import DropField from "./DropField.vue";
-import helpers from "./helpers.js";
+import LoadingModal from './LoadingModal.vue';
+import DropField from './DropField.vue';
+import helpers from './helpers.js';
 const {
   setTextareaHeight,
   updateTextareaHeight,
@@ -13,9 +13,10 @@ export default {
   props: {
     work: Object,
   },
-  emits: ["updateGrid", "closePanel"],
-  inject: ["newWork"],
+  emits: ['updateGrid', 'closePanel'],
+  inject: ['newWork'],
   mounted() {
+    console.log(this.work);
     setTextareaHeight(this.$refs.textarea);
   },
   updated() {
@@ -25,7 +26,7 @@ export default {
     return {
       refWork: { ...this.work },
       loading: false,
-      loadingMessage: "Salvando projeto...",
+      loadingMessage: 'Salvando projeto...',
 
       // Form input monitoring and validation reactive properties
       changes: [],
@@ -68,15 +69,15 @@ export default {
         const query = `?_id=${id}`;
         const url =
           location.origin +
-          `/.netlify/functions/db/works${this.newWork ? "" : query}`;
+          `/.netlify/functions/db/works${this.newWork ? '' : query}`;
 
-        let params = {
+        const params = {
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
+          method: this.newWork ? 'POST' : 'PATCH',
           body: JSON.stringify(body),
         };
-        params.method = this.newWork ? "POST" : "PATCH";
 
         try {
           const res = await fetch(url, params);
@@ -86,12 +87,12 @@ export default {
             ? { _id: json.id, ...body }
             : json.updatedDocument;
 
-          this.$emit("updateGrid", responseWork, params.method);
+          this.$emit('updateGrid', responseWork, params.method);
         } catch (err) {
           alert(`Erro ao salvar projeto! \n Erro: ${err}`);
         }
 
-        this.$emit("closePanel", this.$refs);
+        this.$emit('closePanel', this.$refs);
         this.loading = false;
       }
     },
@@ -101,14 +102,14 @@ export default {
       const url = location.origin + `/.netlify/functions/db/works?_id=${id}`;
 
       this.loading = true;
-      this.loadingMessage = "Apagando projeto...";
+      this.loadingMessage = 'Apagando projeto...';
 
-      const res = await fetch(url, { method: "DELETE" });
+      const res = await fetch(url, { method: 'DELETE' });
       const remainingWorks = (await res.json()).remainingDocuments;
       this.loading = false;
 
-      this.$emit("updateGrid", remainingWorks, "DELETE");
-      this.$emit("closePanel", this.$refs);
+      this.$emit('updateGrid', remainingWorks, 'DELETE');
+      this.$emit('closePanel', this.$refs);
     },
   },
   components: { LoadingModal, DropField },
@@ -169,7 +170,7 @@ export default {
           @click="saveChanges"
           type="button"
         >
-          Salvar alterações
+          {{ this.newWork ? 'Salvar projeto' : 'Salvar alterações' }}
         </button>
         <button v-show="!newWork" @click="deleteProject" type="button">
           Apagar projeto
@@ -226,13 +227,13 @@ export default {
     border-radius: 5px;
     padding: 20px;
     position: relative;
-    background: unquote($cblack + "99");
+    background: unquote($cblack + '99');
     display: flex;
     flex-direction: column;
     animation: openPanel 0.25s ease-in-out;
     input,
     textarea {
-      @include typo(16, $cwhite + AA, "sec");
+      @include typo(16, $cwhite + AA, 'sec');
       margin-top: 20px;
       padding: 0;
       padding-bottom: 10px;
@@ -247,17 +248,18 @@ export default {
         color: $cwhite;
       }
     }
-    input[name="title"] {
+    input[name='title'] {
       font-size: calc(24 / 16) + rem;
       border-bottom: 1px solid $red;
       text-align: center;
     }
     p {
-      @include typo(16, $cwhite, "sec");
+      @include typo(16, $cwhite, 'sec');
       min-width: 100%;
       display: flex;
       align-items: center;
       gap: 10px;
+      margin: 0;
       input {
         margin-top: 0;
         padding-bottom: 0;

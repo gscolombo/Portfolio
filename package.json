@@ -15,6 +15,7 @@
     "mongodb": "^4.9.1",
     "nodemailer": "^6.7.8",
     "poly-bg": "^1.0.1",
+    "sharp": "^0.31.1",
     "vue": "^3.2.39"
   },
   "devDependencies": {

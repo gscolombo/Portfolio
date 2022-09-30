@@ -10,12 +10,12 @@ module.exports = {
 
     if (documents.length) {
       return {
-        message: "Documents retrieved succesfully.",
+        message: 'Documents retrieved successfully.',
         documents: documents,
       };
     } else {
       return {
-        message: "No document were found",
+        message: 'No documents were found',
       };
     }
   },
@@ -25,7 +25,7 @@ module.exports = {
     const result = await collection.insertOne(JSON.parse(data));
 
     return {
-      message: "Document created successfully",
+      message: 'Document created successfully',
       id: result.insertedId,
     };
   },
@@ -38,7 +38,7 @@ module.exports = {
         $set: JSON.parse(data),
         $currentDate: { lastModified: true },
       },
-      { returnDocument: "after" }
+      { returnDocument: 'after' }
     );
 
     if (updatedDocument.value) {

@@ -1,6 +1,7 @@
 <script>
-import LoadingModal from "./LoadingModal.vue";
-import Watermark from "./Watermark.vue";
+import LoadingModal from './LoadingModal.vue';
+import Watermark from './Watermark.vue';
+
 export default {
   props: {
     work: Object,
@@ -15,7 +16,7 @@ export default {
       const reader = new FileReader();
 
       let fileList =
-        event.type == "input" ? event.target.files : event.dataTransfer.files;
+        event.type == 'input' ? event.target.files : event.dataTransfer.files;
       let transfer;
       for (const file of fileList) {
         transfer = file;
@@ -24,9 +25,16 @@ export default {
       this.reading = true;
       reader.readAsDataURL(transfer);
 
-      reader.onloadend = () => {
+      reader.onloadend = async () => {
+        const url = location.origin + '/.netlify/functions/convert';
+        const params = {
+          method: 'POST',
+          body: reader.result,
+        };
+        const dataURL = await (await fetch(url, params)).text();
+
         this.reading = false;
-        this.work.dataURL = reader.result;
+        this.work.dataURL = dataURL;
       };
     },
   },
@@ -74,7 +82,7 @@ export default {
       align-items: center;
       justify-content: center;
       text-align: center;
-      @include typo(24, $cwhite, "sec");
+      @include typo(24, $cwhite, 'sec');
       background-color: black;
       border: 1px solid $red;
       width: 100%;
@@ -93,9 +101,11 @@ export default {
       position: relative;
       z-index: 0;
       object-fit: contain;
+      max-width: 100%;
+      display: block;
     }
     p {
-      @include typo(16, black, "sec");
+      @include typo(16, black, 'sec');
       text-align: center;
       color: black !important;
       display: inline-block !important;

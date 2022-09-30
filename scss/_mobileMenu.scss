@@ -1,5 +1,5 @@
-@use "sass:math";
-@import "sandwich";
+@use 'sass:math';
+@import 'sandwich';
 
 @keyframes appearAnchor {
   from {
@@ -13,7 +13,7 @@
 }
 
 .mobileMenu {
-  @include mq("desktop") {
+  @include mq('desktop') {
     display: none;
   }
   position: fixed;
@@ -25,7 +25,7 @@
     path {
       transform-box: fill-box;
       transform-origin: 100% 0;
-      transform: rotate(90deg);
+      transform: rotate3d(0, 0, 1, 90deg);
       transition: transform 0.25s;
     }
   }
@@ -44,7 +44,7 @@
       position: fixed;
       animation: appearAnchor 0.25s forwards;
       transition: all 0.25s;
-      @include typo(24, $cblack, "sec");
+      @include typo(24, $cblack, 'sec');
       font-size: min(6.4vw, 24px);
       @for $n from 0 through 2 {
         &:nth-of-type(#{$n + 1}) {
