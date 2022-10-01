@@ -5,12 +5,12 @@ $red: #6b0f1a;
 $wine: #31081f;
 
 // Tipography
-$main_font: "Rajdhani", sans-serif;
-$sec_font: "Play", sans-serif;
+$main_font: 'Rajdhani', sans-serif;
+$sec_font: 'Play', sans-serif;
 @mixin typo($size, $color: $cwhite, $type, $pixel: false) {
   color: $color;
   line-height: calc(1.28 * $size) + px;
-  @if ($type == "main") {
+  @if ($type == 'main') {
     font-family: $main_font;
   } @else {
     font-family: $sec_font;
@@ -22,6 +22,7 @@ $sec_font: "Play", sans-serif;
   }
 }
 
+// Miscellaneous mixins
 @mixin bar {
   width: 100%;
   height: 1px;
@@ -33,25 +34,42 @@ $sec_font: "Play", sans-serif;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  @include typo($size, $cwhite, "sec");
+  @include typo($size, $cwhite, 'sec');
   padding: 6px 5px;
   background: $cblack;
   border-top: 1px solid $red;
   border-bottom: 1px solid $red;
 }
 
+@mixin custom-scrollbar {
+  scrollbar-width: 5px;
+  scrollbar-color: $red;
+  scrollbar-track-color: black;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: black;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $red;
+  }
+}
+
 // Responsiveness
-@mixin mq($type: "desktop") {
-  @if $type == "desktop" {
+@mixin mq($type: 'desktop') {
+  @if $type == 'desktop' {
     @media screen and (min-width: ( calc(1024 / 16) + rem)) {
       @content;
     }
-  } @else if $type == "tablet" {
+  } @else if $type == 'tablet' {
     @media screen and (min-width: ( calc(640 / 16) + rem)) {
       @content;
     }
-  } @else if $type == "mobile" {
-    @media screen and (min-width: ( calc(480 / 16) + rem)) {
+  } @else if $type == 'mobile' {
+    @media screen and (max-width: ( calc(639 / 16) + rem)) {
       @content;
     }
   }

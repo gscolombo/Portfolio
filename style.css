@@ -150,7 +150,9 @@ body.noScroll {
 }
 @media screen and (min-width: 64rem) {
   body {
-    scrollbar-width: 0;
+    scrollbar-width: 5px;
+    scrollbar-color: #6b0f1a;
+    scrollbar-track-color: black;
     overflow-x: hidden;
   }
   body::-webkit-scrollbar {
@@ -946,13 +948,35 @@ section#portfolio .grid .details.show iframe {
 }
 section#portfolio .grid .details.show .info-wrapper {
   display: grid;
-  grid-template-rows: 10% 70% 1fr 1fr;
+  grid-template-rows: fit-content(100%) 1fr fit-content(100%) fit-content(100%);
   padding-bottom: 20px;
+}
+@media screen and (max-width: 39.9375rem) {
+  section#portfolio .grid .details.show .info-wrapper {
+    scrollbar-width: 5px;
+    scrollbar-color: #6b0f1a;
+    scrollbar-track-color: black;
+    overflow-x: hidden;
+    border-top: 1px solid #6b0f1a;
+    scrollbar-width: 2.5px;
+  }
+  section#portfolio .grid .details.show .info-wrapper::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+  }
+  section#portfolio .grid .details.show .info-wrapper::-webkit-scrollbar-track {
+    background-color: black;
+  }
+  section#portfolio .grid .details.show .info-wrapper::-webkit-scrollbar-thumb {
+    background-color: #6b0f1a;
+  }
+  section#portfolio .grid .details.show .info-wrapper::-webkit-scrollbar {
+    width: 2.5px;
+  }
 }
 @media screen and (min-width: 64rem) {
   section#portfolio .grid .details.show .info-wrapper {
     padding-top: 40px;
-    grid-template-rows: fit-content(100%) 1fr fit-content(100%) fit-content(100%);
   }
 }
 section#portfolio .grid .details.show .info-wrapper h4 {
@@ -992,6 +1016,23 @@ section#portfolio .grid .details.show .info-wrapper button {
   margin: 0 auto;
   gap: 10px;
   z-index: 4;
+}
+@media screen and (max-width: 39.9375rem) {
+  section#portfolio .grid .details.show .info-wrapper button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #d8d5d6;
+    line-height: 23.04px;
+    font-family: "Play", sans-serif;
+    font-size: 1.125rem;
+    padding: 6px 5px;
+    background: #0e0004;
+    border-top: 1px solid #6b0f1a;
+    border-bottom: 1px solid #6b0f1a;
+  }
 }
 section#portfolio .grid .details.show .info-wrapper button a {
   text-decoration: none;

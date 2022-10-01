@@ -195,13 +195,20 @@ section#portfolio {
         }
         .info-wrapper {
           display: grid;
-          grid-template-rows: 10% 70% 1fr 1fr;
+          grid-template-rows: fit-content(100%) 1fr fit-content(100%) fit-content(
+              100%
+            );
           padding-bottom: 20px;
+          @include mq('mobile') {
+            @include custom-scrollbar;
+            border-top: 1px solid $red;
+            scrollbar-width: 2.5px;
+            &::-webkit-scrollbar {
+              width: 2.5px;
+            }
+          }
           @include mq('desktop') {
             padding-top: 40px;
-            grid-template-rows: fit-content(100%) 1fr fit-content(100%) fit-content(
-                100%
-              );
           }
           h4 {
             @include typo(18, $cwhite, 'sec');
@@ -216,6 +223,9 @@ section#portfolio {
           }
           button {
             @include button(24);
+            @include mq('mobile') {
+              @include button(18);
+            }
             height: fit-content;
             width: fit-content;
             padding: 6px 20px;

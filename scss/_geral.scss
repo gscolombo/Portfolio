@@ -12,18 +12,7 @@ body {
     overflow-y: hidden;
   }
   @include mq('desktop') {
-    scrollbar-width: 0;
-    overflow-x: hidden;
-    &::-webkit-scrollbar {
-      width: 5px;
-      border-radius: 5px;
-    }
-    &::-webkit-scrollbar-track {
-      background-color: black;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: $red;
-    }
+    @include custom-scrollbar;
   }
 }
 
