@@ -36,11 +36,15 @@ if (location.pathname == '/') {
     const btn = document.querySelector('section#entrance button');
     const events = ['touchstart', 'click'];
     events.forEach((event) =>
-      btn.addEventListener(event, (e) => {
-        let distance = document.querySelector('section#portfolio').offsetTop;
-        if (innerWidth > 720) distance -= innerHeight * 0.08;
-        scrollTo({ top: distance, left: 0, behavior: 'smooth' });
-      })
+      btn.addEventListener(
+        event,
+        (e) => {
+          let distance = document.querySelector('section#portfolio').offsetTop;
+          if (innerWidth > 720) distance -= innerHeight * 0.08;
+          scrollTo({ top: distance, left: 0, behavior: 'smooth' });
+        },
+        { passive: true }
+      )
     );
   };
 

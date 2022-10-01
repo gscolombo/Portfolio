@@ -1,7 +1,7 @@
-const { ObjectId } = require("mongodb");
-const crud = require("./crud");
+const { ObjectId } = require('mongodb');
+const crud = require('./crud');
 
-module.exports = async (collectionInfo, method = "GET", queryObject, data) => {
+module.exports = async (collectionInfo, method = 'GET', queryObject, data) => {
   const { name, collection } = collectionInfo;
   let response = { statusCode: null, body: {} }; // Define response object
 
@@ -14,16 +14,16 @@ module.exports = async (collectionInfo, method = "GET", queryObject, data) => {
   try {
     let queryResult = {};
     switch (method) {
-      case "GET":
+      case 'GET':
         queryResult = await crud.get(collection, queryObject);
         break;
-      case "POST":
+      case 'POST':
         queryResult = await crud.post(collection, data);
         break;
-      case "PATCH":
+      case 'PATCH':
         queryResult = await crud.patch(name, collection, queryObject, data);
         break;
-      case "DELETE":
+      case 'DELETE':
         queryResult = await crud.delete(name, collection, queryObject);
         break;
     }

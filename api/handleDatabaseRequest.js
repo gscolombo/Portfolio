@@ -1,19 +1,19 @@
-const queryDatabase = require("./queryDatabase");
+const queryDatabase = require('./queryDatabase');
 
 module.exports = async (request, client) => {
   const { path, httpMethod, queryStringParameters, body } = request;
-  const collection = path.substring(path.lastIndexOf("/") + 1);
+  const collection = path.substring(path.lastIndexOf('/') + 1);
 
   try {
     // Configure database and collection
-    const database = client.db("personal_portfolio");
+    const database = client.db('personal_portfolio');
     const collectionInfo = {
       name: collection,
       collection: database.collection(collection),
     };
 
     // Process query and return response
-    const response = await queryDatabase(
+    let response = await queryDatabase(
       collectionInfo,
       httpMethod,
       queryStringParameters,

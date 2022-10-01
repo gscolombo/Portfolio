@@ -102,6 +102,8 @@ section#portfolio {
         transition: all 0.25s;
         img {
           border: 1px solid $red;
+          width: 100%;
+          height: 100%;
         }
         p {
           @include typo(28, $cwhite, 'sec');
