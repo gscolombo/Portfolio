@@ -1,12 +1,15 @@
 import bg from 'poly-bg';
 import mobileMenu from './modules/mobileMenu.js';
-import initVueApp from '../adminApp/index.js';
 import initVueGrid from './vue/index.js';
 import sendMail from './modules/sendMail.js';
 import navMenu from './modules/navMenu.js';
 
 /** Public site functions **/
 if (location.pathname == '/') {
+  document
+    .querySelectorAll('img')
+    .forEach((img) => img.setAttribute('loading', 'lazy'));
+
   window.onload = () => {
     const html = document.querySelector('html');
 
@@ -51,7 +54,10 @@ if (location.pathname == '/admin') {
     window.addEventListener(event, (e) => e.preventDefault());
   });
 
-  window.onload = () => {
+  window.onload = async () => {
+    const { default: initVueApp } = await import(
+      /* webpackChunkName: "admin" */ '../adminApp/index.js'
+    );
     initVueApp(); // Start Vue app
   };
 }

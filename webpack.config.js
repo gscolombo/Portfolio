@@ -1,25 +1,26 @@
-const path = require("path");
-const { VueLoaderPlugin } = require("vue-loader");
+const path = require('path');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
-  entry: "./js/main.js",
+  entry: './js/main.js',
   output: {
     path: path.resolve(__dirname),
-    filename: "bundle.js",
+    publicPath: path.resolve(__dirname),
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        use: ["vue-loader"],
+        use: ['vue-loader'],
       },
       {
         test: /\.s?css$/,
         use: [
-          "vue-style-loader",
-          "css-loader",
+          'vue-style-loader',
+          'css-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               additionalData: "@import 'scss/_varmixins';",
             },
