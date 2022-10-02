@@ -37,7 +37,7 @@ export default {
           break;
         case 'PATCH':
           const updatedWorkIndex = this.works.findIndex(
-            (work) => work.id == res.id
+            (work) => work._id == res._id
           );
           this.works[updatedWorkIndex] = res;
           break;

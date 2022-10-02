@@ -16,7 +16,6 @@ export default {
   emits: ['updateGrid', 'closePanel'],
   inject: ['newWork'],
   mounted() {
-    console.log(this.work);
     setTextareaHeight(this.$refs.textarea);
   },
   updated() {

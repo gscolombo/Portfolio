@@ -65,7 +65,7 @@ export default {
     <LoadingModal
       v-show="reading"
       message="Carregando imagem..."
-      :style="{ minWidth: '100%', minHeight: '100%', padding: 0 }"
+      :style="{ minWidth: '100%', minHeight: '100%', padding: 0, bottom: 0 }"
     />
   </div>
 </template>

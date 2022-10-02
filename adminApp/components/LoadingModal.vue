@@ -24,7 +24,6 @@ export default {
   width: 100%;
   height: 100%;
   position: absolute;
-  bottom: 0;
   justify-content: center;
   img {
     min-width: 25%;
@@ -32,7 +31,7 @@ export default {
   p {
     display: inline-block;
     text-align: center;
-    @include typo(24, $cwhite, "sec");
+    @include typo(24, $cwhite, 'sec');
   }
 }
 </style>

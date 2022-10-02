@@ -50,12 +50,4 @@ if (location.pathname == '/') {
 
   // Send e-mail from contact form
   sendMail(document.querySelector('#contact form'));
-
-  // // Dynamic import of administration panel vue app
-  // async () => {
-  //   const { default: initVueApp } = await import(
-  //     /* webpackChunkName: "admin" */ '../adminApp/index.js'
-  //   );
-  //   initVueApp(); // Start Vue app
-  // };
 }
