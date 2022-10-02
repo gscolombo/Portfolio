@@ -48,20 +48,14 @@ if (location.pathname == '/') {
     );
   };
 
+  // Send e-mail from contact form
   sendMail(document.querySelector('#contact form'));
-}
 
-/** Administration page functions **/
-if (location.pathname == '/admin') {
-  // Remove drag-and-drop event listener from window object
-  ['drop', 'dragover'].forEach((event) => {
-    window.addEventListener(event, (e) => e.preventDefault());
-  });
-
-  window.onload = async () => {
-    const { default: initVueApp } = await import(
-      /* webpackChunkName: "admin" */ '../adminApp/index.js'
-    );
-    initVueApp(); // Start Vue app
-  };
+  // // Dynamic import of administration panel vue app
+  // async () => {
+  //   const { default: initVueApp } = await import(
+  //     /* webpackChunkName: "admin" */ '../adminApp/index.js'
+  //   );
+  //   initVueApp(); // Start Vue app
+  // };
 }

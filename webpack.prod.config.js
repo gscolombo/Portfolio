@@ -4,10 +4,12 @@ const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
   mode: 'production',
-  entry: './js/main.js',
+  entry: {
+    main: './js/main.js',
+    admin: './adminApp/index.js',
+  },
   output: {
     path: path.resolve(__dirname),
-    publicPath: path.resolve(__dirname),
     filename: '[name].bundle.js',
   },
   module: {

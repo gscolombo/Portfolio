@@ -1,8 +1,11 @@
-import { createApp } from "vue";
-import App from "./components/App.vue";
+import { createApp } from 'vue';
+import App from './components/App.vue';
 
-export default () => {
-  const app = createApp(App);
-  app.config.unwrapInjectedRef = true;
-  app.mount("#app");
-};
+// Remove drag-and-drop event listener from window object
+['drop', 'dragover'].forEach((event) => {
+  window.addEventListener(event, (e) => e.preventDefault());
+});
+
+const app = createApp(App);
+app.config.unwrapInjectedRef = true;
+app.mount('#app');

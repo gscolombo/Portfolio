@@ -1,6 +1,6 @@
-import { createApp } from "vue";
-import Grid from "./Grid.vue";
+import { createApp } from 'vue';
+import Grid from './Grid.vue';
 
 export default () => {
-  createApp(Grid).mount(".portfolio-wrapper .grid");
+  createApp(Grid).mount('.portfolio-wrapper .grid');
 };
