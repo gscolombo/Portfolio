@@ -7,7 +7,7 @@
 
 export default function activeSection(factor = 0.05) {
   // Get sections scroll position
-  const sections = Array.from(document.querySelectorAll("section")).reverse(); // Get all sections as an array, in reverse order (to allow correct index identification)
+  const sections = Array.from(document.querySelectorAll('section')).reverse(); // Get all sections as an array, in reverse order (to allow correct index identification)
 
   /**
    * Set section's positions array (distances from the start of the document).
@@ -22,11 +22,11 @@ export default function activeSection(factor = 0.05) {
     (position) => scrollY >= position
   );
   const activeSection = sections[activeSectionIndex];
-  activeSection.classList.add("active");
+  activeSection.classList.add('active');
 
   // Return activated section, associated index and section's positions array
   return [
-    activeSection ? activeSection : "entrance",
+    activeSection ? activeSection : 'entrance',
     activeSection ? Math.abs(activeSectionIndex - sections.length + 1) : 0,
     sectionsPositions.reverse(),
   ];

@@ -8,7 +8,9 @@ import navMenu from './modules/navMenu.js';
 if (location.pathname == '/') {
   document
     .querySelectorAll('img')
-    .forEach((img) => img.setAttribute('loading', 'lazy'));
+    .forEach((img) =>
+      img.hasAttribute('loading') ? null : img.setAttribute('loading', 'lazy')
+    );
 
   window.onload = () => {
     const html = document.querySelector('html');

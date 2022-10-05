@@ -2,6 +2,7 @@
  * Module to handle mobile version sandwich menu
  */
 import activeSection from './activeSection.js';
+import debounce from './debounce.js';
 
 export default function mobileMenu() {
   const menu = document.querySelector('.mobileMenu'); // Get mobile menu
@@ -68,7 +69,7 @@ export default function mobileMenu() {
   let [section, index, positions] = activeSection();
 
   // Define window scroll event callback
-  window.onscroll = () => {
+  window.onscroll = debounce(100, () => {
     // Reset active section name and index
     [section, index, positions] = activeSection();
 
@@ -78,14 +79,14 @@ export default function mobileMenu() {
     // Set active state to anchor element accordingly to respective active section
     a.forEach((a) => a.classList.remove('active'));
     if (activeAnchor) activeAnchor.classList.add('active');
-  };
+  });
 
   /**
    * Function to set page navigation through mobile menu anchors
    */
   // Set touch event callback for each anchor element
   a.forEach((a, i, array) =>
-    a.addEventListener('touchstart', (event) => {
+    a.addEventListener('touchstart', () => {
       /**
        * Get anchor element index.
        * Add one to adjust the correspondence between the anchors

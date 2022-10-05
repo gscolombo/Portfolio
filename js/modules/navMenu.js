@@ -2,6 +2,7 @@
  * Module to handle navigation bar
  */
 import activeSection from './activeSection';
+import debounce from './debounce';
 
 export default () => {
   // Get nav element and links
@@ -24,7 +25,7 @@ export default () => {
   });
 
   // Set scroll event listener
-  window.onscroll = () => {
+  window.onscroll = debounce(100, () => {
     // Set navigation bar style transition
     if (scrollY > innerHeight / 4) {
       nav.classList.add('active');
@@ -42,5 +43,5 @@ export default () => {
         ? link.classList.add('active')
         : link.classList.remove('active')
     );
-  };
+  });
 };
