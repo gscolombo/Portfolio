@@ -97,7 +97,9 @@ section#portfolio {
         text-align: center;
         min-width: 50%;
         transform: scale(0.8);
-        animation: showWork 0.5s;
+        clip-path: inset(0 50% 0 50%);
+        opacity: 0.75;
+        animation: showWork 0.5s forwards;
         filter: saturate(0.5) blur(1px);
         transition: all 0.25s;
         img {
@@ -201,8 +203,8 @@ section#portfolio {
           height: 60vh;
           padding-bottom: 20px;
           overflow-y: scroll;
+          @include custom-scrollbar;
           @include mq('mobile') {
-            @include custom-scrollbar;
             border-top: 1px solid $red;
             scrollbar-width: 2.5px;
             &::-webkit-scrollbar {

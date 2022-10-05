@@ -25,6 +25,7 @@
             .t1, .t2, .t3 {
                 transform-box: fill-box;
                 transform-origin: center 33.3333%;
+                will-change: transform;
             }
             .t1 {
                 animation: rotatet1 5s infinite reverse linear;
