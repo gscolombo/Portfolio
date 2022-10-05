@@ -73,26 +73,17 @@ export default {
   >
     <img :src="work.dataURL" />
     <p>{{ work.title }}</p>
-    <button v-if="!mobile" @click="workSelected = work">Ver detalhes</button>
   </div>
-  <div class="slide">
+  <div class="slide" v-if="!mobile">
     <div
-      v-if="!mobile"
       class="work"
       v-for="work in worksLoaded"
       :key="work._id"
       :style="{ pointerEvents: this.workSelected ? 'none' : 'all' }"
-      @click="
-        () => {
-          if (this.mobile) {
-            workSelected = work;
-          }
-        }
-      "
     >
       <img :src="work.dataURL" />
       <p>{{ work.title }}</p>
-      <button v-if="!mobile" @click="workSelected = work">Ver detalhes</button>
+      <button @click="workSelected = work">Ver detalhes</button>
     </div>
   </div>
   <div class="details" v-if="workSelected" :class="{ show: workSelected }">
