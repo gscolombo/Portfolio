@@ -6,7 +6,7 @@
   "scripts": {
     "webpackDev": "webpack -w --mode development",
     "sass": "sass ./scss/style.scss ./style.css --no-source-map -w",
-    "dev": "npx live-server --no-browser --watch=./index.html,./admin.html,./style.css,./*.bundle.js",
+    "dev": "npx live-server --no-browser --watch=./index.html,./admin.html,./style.css,./*. bundle.js",
     "start": "npx webpack --config webpack.prod.config.js && sass ./scss/style.scss ./style.css --no-source-map -s compressed"
   },
   "author": "gscolombo",

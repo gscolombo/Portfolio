@@ -22,7 +22,7 @@ if (location.pathname == '/') {
     document.body.style.overflowY = '';
 
     // Set cool background
-    bg('bg', 4, 4, html.clientWidth, html.clientHeight);
+    bg('bg', 4, 4, html.clientWidth, html.clientHeight, false);
 
     // Initialize vue grid
     initVueGrid();

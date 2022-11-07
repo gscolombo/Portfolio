@@ -1,10 +1,10 @@
 <script>
-import bg from "poly-bg";
+import bg from 'poly-bg';
 
 export default {
   mounted() {
-    const html = document.querySelector("html");
-    bg("bg", 3, 3, html.clientWidth, html.clientHeight);
+    const html = document.querySelector('html');
+    bg('bg', 3, 3, html.clientWidth, html.clientHeight, false);
   },
 };
 </script>
