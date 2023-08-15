@@ -27,16 +27,22 @@ module.exports = async (collectionInfo, method = 'GET', queryObject, data) => {
         queryResult = await crud.delete(name, collection, queryObject);
         break;
     }
-    response.body = JSON.stringify(queryResult);
-    response.statusCode = 200;
+    if (queryResult.documents.length > 0) {
+      response.body = JSON.stringify(queryResult);
+      response.statusCode = 200;
+      return response;
+    } else {
+      const error = new Error('No works were found.');
+      error.name = 'SearchError';
+      throw new Error('No works were found');
+    }
   } catch (error) {
-    response.statusCode = 500;
+    response.statusCode = error.name == 'SearchError' ? 404 : 500;
 
     // Set error message to client in response object
     response.body = JSON.stringify({
       error: `Error during database querying: ${error.message}`,
     });
-  } finally {
     return response;
   }
 };

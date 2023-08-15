@@ -6,7 +6,7 @@
   "scripts": {
     "webpackDev": "webpack -w --mode development",
     "sass": "sass ./scss/style.scss ./style.css --no-source-map -w",
-    "dev": "npx live-server --no-browser --watch=./index.html,./admin.html,./style.css,./*. bundle.js",
+    "dev": "npx live-server --no-browser --watch=./index.html,./admin.html,./style.css,./*.bundle.js",
     "start": "npx webpack --config webpack.prod.config.js && sass ./scss/style.scss ./style.css --no-source-map -s compressed"
   },
   "author": "gscolombo",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "detect-gpu": "^5.0.37",
     "live-server": "^1.2.2",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2",

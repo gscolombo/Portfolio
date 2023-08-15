@@ -5,7 +5,7 @@ section#entrance {
   justify-content: center;
   padding: 25vh 0;
   min-height: 100vh;
-  @include mq("desktop") {
+  @include mq('desktop') {
     padding-bottom: 40px;
   }
   .mobile-logo,
@@ -17,7 +17,7 @@ section#entrance {
   .wrapper {
     width: 100%;
     height: fit-content;
-    @include mq("desktop") {
+    @include mq('desktop') {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: fit-content(100%);
@@ -25,7 +25,7 @@ section#entrance {
   }
   .me {
     display: none;
-    @include mq("desktop") {
+    @include mq('desktop') {
       display: flex;
       align-items: center;
       position: relative;
@@ -38,12 +38,12 @@ section#entrance {
     grid-column: 1 / -1;
     max-width: 90%;
     margin: 0 auto;
-    @include mq("desktop") {
+    @include mq('desktop') {
       grid-column: 2 / 3;
       max-width: 100%;
       margin: 12.5% 25% 0 0;
       h1 {
-        @include typo(72, $cwhite, "main");
+        @include typo(72, $cwhite, 'main');
         padding: 0;
         text-align: right;
       }
@@ -58,7 +58,7 @@ section#entrance {
       button {
         left: 25%;
         p {
-          @include typo(36, $cwhite, "sec");
+          @include typo(36, $cwhite, 'sec');
         }
         img {
           min-width: 32px;
@@ -68,14 +68,14 @@ section#entrance {
   }
   h1,
   h3 {
-    @include typo(48, $cwhite, "main");
+    @include typo(48, $cwhite, 'main');
     text-align: center;
   }
   h3 {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    @include typo(36, $cwhite, "main");
+    @include typo(36, $cwhite, 'main');
     margin-top: 28px;
     margin-bottom: 100px;
     gap: 20px;
@@ -101,13 +101,13 @@ section#entrance {
     margin: 0 auto;
     cursor: pointer;
     p {
-      @include typo(24, $cwhite, "sec");
+      @include typo(24, $cwhite, 'sec');
     }
   }
   nav {
     display: none;
   }
-  @include mq("desktop") {
+  @include mq('desktop') {
     .mobile-logo {
       display: none;
     }
@@ -125,8 +125,7 @@ section#entrance {
       &.active {
         min-width: 100vw;
         padding: 14px 40px;
-        background: #000000dd;
-        backdrop-filter: blur(5px);
+        background: #000000ee;
       }
       img.logo {
         top: 0;
@@ -138,7 +137,7 @@ section#entrance {
         gap: 40px;
         align-items: center;
         a {
-          @include typo(24, $cwhite, "sec");
+          @include typo(24, $cwhite, 'sec');
           flex: 1;
           white-space: nowrap;
           cursor: pointer;

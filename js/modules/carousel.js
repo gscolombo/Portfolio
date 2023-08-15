@@ -82,6 +82,10 @@ export default function carousel() {
     // Get current slide translation distance
     const initialXCoordinates = startEvent.pageX;
 
+    const timer = setTimeout(() => {
+      slide.dispatchEvent(new Event('mouseup'));
+    }, 500);
+
     // Dragging is executed by moving the mouse
     slide.addEventListener(
       'mousemove',
@@ -111,10 +115,9 @@ export default function carousel() {
         })`;
 
         // Move slide by adding distance traveled to current translation distance
-        slide.style.transform = `translate3d(${
-          -currentDistance - distance
-        }px, 0, 0)`;
+        slide.style.transform = `translateX(${-currentDistance - distance}px)`;
       },
+
       { signal: signal }
     );
 
@@ -123,6 +126,7 @@ export default function carousel() {
       'mouseup',
       (endEvent) => {
         endEvent.preventDefault();
+        clearTimeout(timer);
 
         // Signal to remove "mousemove" event listener
         signalController.abort();
@@ -144,7 +148,7 @@ export default function carousel() {
               items.forEach((item) => (item.style.pointerEvents = 'none')); // Disable interactions with the slide
               setTimeout(() => {
                 currentDistance = distances[n - 2]; //  Set current distance to the real last item
-                slide.style.transform = `translate3d(${-currentDistance}px, 0, 0)`; // Translate the slide
+                slide.style.transform = `translateX(${-currentDistance}px)`; // Translate the slide
                 items.forEach((item) => (item.style.pointerEvents = '')); // Enable interactions with the slide
                 items[0].classList.remove('on');
               }, 250);
@@ -170,7 +174,7 @@ export default function carousel() {
               // Translate to the real last item without user notice
               setTimeout(() => {
                 currentDistance = distances[1]; //  Set current distance to the real first item
-                slide.style.transform = `translate3d(${-currentDistance}px, 0, 0)`; // Translate the slide
+                slide.style.transform = `translateX(${-currentDistance}px)`; // Translate the slide
                 items[n - 1].classList.remove('on');
               }, 250);
             } else {
@@ -184,7 +188,7 @@ export default function carousel() {
           }
         } else {
           slide.style.transition = transition; // Set smooth transition
-          slide.style.transform = `translate3d(${-currentDistance}px, 0, 0)`;
+          slide.style.transform = `translateX(${-currentDistance}px)`;
 
           setTimeout(() => {
             slide.style.transition = 'none';
@@ -204,7 +208,7 @@ export default function carousel() {
 // Function to move the slide
 function moveSlide(slide, transition, distance) {
   slide.style.transition = transition; // Set smooth transition
-  slide.style.transform = `translate3d(${distance}px, 0,0)`;
+  slide.style.transform = `translateX(${distance}px)`;
 
   // Reset transition to none
   setTimeout(() => {
