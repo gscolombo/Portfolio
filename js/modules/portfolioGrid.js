@@ -2,14 +2,14 @@
  * Module to handle portfolio grid interaction (only mobile)
  */
 
-import Pagination from "./pagination.js";
+import Pagination from './pagination.js';
 
 export default async function portfolioGrid(selector) {
   // Get portfolio wrapper
-  const wrapper = document.querySelector("div.portfolio-wrapper");
+  const wrapper = document.querySelector('div.portfolio-wrapper');
 
   // Get portfolio grid items
-  const gridItems = Array.from(wrapper.querySelectorAll(".grid .work"));
+  const gridItems = Array.from(wrapper.querySelectorAll('.grid .work'));
 
   // Set groups of items based on number of pages
   let tmp = [];
@@ -32,9 +32,9 @@ export default async function portfolioGrid(selector) {
     pagination.setPaginationElements();
     const { paginationWrapper, buttons, pageCounter } = pagination.elements;
     buttons.forEach((btn) => {
-      const img = document.createElement("img");
-      img.src = "img/arrow.svg";
-      img.alt = "Ícone de seta";
+      const img = document.createElement('img');
+      img.src = 'img/arrow.svg';
+      img.alt = 'Ícone de seta';
       btn.appendChild(img);
     });
 
@@ -42,10 +42,10 @@ export default async function portfolioGrid(selector) {
     paginationWrapper.appendChild(pageCounter);
     paginationWrapper.appendChild(buttons[1]);
 
-    wrapper.insertBefore(paginationWrapper, wrapper.querySelector(".grid"));
+    wrapper.insertBefore(paginationWrapper, wrapper.querySelector('.grid'));
 
     pagination.setPaginationButtonsEventListeners(); // Set touch events to pagination handlers
   } else {
-    gridItems.forEach((item) => item.classList.add("show"));
+    gridItems.forEach((item) => item.classList.add('show'));
   }
 }

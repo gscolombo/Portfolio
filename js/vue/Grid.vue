@@ -18,6 +18,7 @@ export default {
       workSelected: null,
       works: this.works,
       carouselStarted: false,
+      paginationSetted: false,
     };
   },
   computed: {
@@ -27,7 +28,10 @@ export default {
   },
   updated() {
     if (this.mobile) {
-      setPortfolioGrid();
+      if (!this.paginationSetted) {
+        setPortfolioGrid();
+        this.paginationSetted = true;
+      }
     } else {
       navMenu();
       if (!this.carouselStarted) {
