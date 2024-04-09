@@ -22,6 +22,9 @@
 }
 
 section#portfolio {
+  p {
+    display: none;
+  }
   @include mq('desktop') {
     h3 {
       @include typo(36, $cwhite, 'main');
@@ -30,6 +33,12 @@ section#portfolio {
       width: 25%;
       transform: translateX(12.5%);
     }
+    p {
+      display: block;
+      text-align: center;
+      margin: 5px 0 10px 0;
+      @include typo(18, $cwhite, 'main')
+    }
   }
   .portfolio-wrapper {
     display: flex;
@@ -37,7 +46,6 @@ section#portfolio {
     align-items: center;
     overflow: hidden;
     gap: 30px;
-    margin-top: 30px;
     .pagination-wrapper {
       display: flex;
       align-items: center;
@@ -92,7 +100,7 @@ section#portfolio {
     .work {
       display: none;
       user-select: none;
-      will-change: clip-path, filter;
+      will-change: clip-path, filter, transition, transform;
       @include mq('desktop') {
         cursor: pointer;
         display: flex;
@@ -177,7 +185,7 @@ section#portfolio {
           bottom: 0;
           background-color: #000000 + AA;
           &.concluded {
-            background-color: transparent;
+            display: none;            
           }
           @include mq('desktop') {
             min-width: 100%;
@@ -197,7 +205,7 @@ section#portfolio {
         iframe {
           min-height: 100%;
           min-width: 100%;
-          pointer-events: none;
+          background-color: white;
         }
         .info-wrapper {
           display: grid;

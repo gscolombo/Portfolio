@@ -10,16 +10,19 @@
       href="https://fonts.googleapis.com/css2?family=Play&family=Rajdhani:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link 
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <title>Gabriel S. Colombo</title>
   </head>
-  <body style="background-color: black; overflow-y: hidden">
+  <body>
     <div class="loading">
       <img loading="eager" src="img/loading.svg" alt="Ícone de carregamento" />
       <p>Carregando site...</p>
     </div>
     <div class="background">
-      <canvas id="bg"></canvas>
+      <canvas id="smoke"></canvas>
       <svg class="svg-background-filter">
         <rect width="100%" height="100%" fill="#000000" opacity="0.5" />
       </svg>
@@ -94,8 +97,8 @@
           alt="Logo"
         />
         <div class="links">
-          <a id="about">Sobre mim</a>
           <a id="portfolio">Portfólio</a>
+          <a id="about">Sobre mim</a>
           <a id="contact">Contato</a>
           <div class="sm">
             <a target="_blank" href="https://github.com/gscolombo"
@@ -106,36 +109,52 @@
                 src="./img/linkedin-svgrepo-com.svg"
                 alt="Ícone do Linkedin"
             /></a>
-            <a target="_blank" href="https://www.instagram.com/gscolombo404/">
-              <img
-                src="./img/instagram-svgrepo-com.svg"
-                alt="Ícone do Instagram"
-            /></a>
           </div>
         </div>
       </nav>
+      <div class="panel-container">
+        <div class="panel">
+            <p>Oi! (•◡•)/ como vai?</p>
+            <p>Que bom te ver aqui!</p>
+            <p>Prazer, sou um desenvolvedor e analista de dados com habilidades em:</p><br>
+            <p>- Python</p>
+            <p>- Typescript</p>
+            <p>- PowerBI</p>
+            <p>- Excel</p>
+            <p>- Angular | React | Vue</p>
+            <p>- C++</p>
+            <p>- PHP</p>
+            <p>...e evoluindo constantemente!</p><br>
+            <p>Boas-vindas ao meu portfólio!</p>
+            <p style="margin-top: 10px;" class="dancing-guy">◙▒◙ ♪♬ ᕕ(⌐■_■)ᕗ ♩♬ ◙▒◙</p>
+            <svg class="cursor" viewbox="0 0 100 100" height="20px" width="20px" >
+                <rect x="0" y="0" width="30" height="100" fill="white" />
+            </svg>
+        </div>
+      </div>
       <div class="wrapper">
-        <div class="me">
-          <img loading="eager" src="img/me-too.webp" alt="" />
-        </div>
-        <div class="text">
-          <h1>Gabriel Colombo</h1>
-          <svg class="bar">
-            <rect width="85%" height="1px" x="7.5%" fill="#6b0f1a" />
-          </svg>
-          <h3>
-            <img loading="eager" src="./img/pc.svg" alt="Ícone de computador" />
-            <strong>Desenvolvedor</strong>
-          </h3>
-          <button>
-            <p>Portfólio</p>
-            <img
-              loading="eager"
-              src="./img/arrow.svg"
-              alt="Seta transparente de borda vermelha"
-            />
-          </button>
-        </div>
+        <h1>Gabriel<br>Colombo</h1>
+        <svg class="bar">
+          <rect width="85%" height="1px" x="7.5%" fill="#6b0f1a" />
+        </svg>
+        <button>
+          <p>Portfólio</p>
+          <img
+            loading="eager"
+            src="./img/arrow.svg"
+            alt="Seta transparente de borda vermelha"
+          />
+        </button>
+      </div>
+    </section>
+    <section id="portfolio">
+      <h3>Portfólio</h3>
+      <svg class="bar">
+        <rect width="50%" height="1px" x="25%" fill="#6b0f1a" />
+      </svg>
+      <p>Segure e arraste para ver os outros projetos</p>
+      <div class="portfolio-wrapper">
+        <div class="grid"></div>
       </div>
     </section>
     <section id="about">
@@ -151,7 +170,7 @@
           Logo após a conclusão da graduação em Biologia pela Universidade
           Católica de Brasília - UCB, em junho de 2020, dei início à transição
           de minha carreira para a área de tecnologia e desenvolvimento.
-          <br /><br />Meu TCC exigiu que algumas análises estatísticas fossem
+          <br><br>Meu TCC exigiu que algumas análises estatísticas fossem
           feitas com a linguagem R e essa foi a porta de entrada para os meus
           estudos de programação. Desde aquele ano, tenho estudado
           desenvolvimento web e me aprofundado em aspectos gerais da computação.
@@ -159,22 +178,15 @@
           Universidade de Brasília - UnB para me aprimorar ainda mais nesse
           universo.
         </p>
+        <a href="./assets/Gabriel_Colombo_CV.pdf"><span class="material-icons">file_present</span>Meu currículo</a>
         <ul>
-          <li>3 anos de experiências com pesquisa científica</li>
+          <li>3 anos de experiência com pesquisa científica</li>
           <li>
             Familiaridade tanto com desenvolvimento front-end quanto back-end
           </li>
+          <li>Competência para análise  e visualização de dados com Python e PowerBI</li>
           <li>Dedicado, proativo e persistente na resolução de problemas</li>
         </ul>
-      </div>
-    </section>
-    <section id="portfolio">
-      <h3>Portfólio</h3>
-      <svg class="bar">
-        <rect width="50%" height="1px" x="25%" fill="#6b0f1a" />
-      </svg>
-      <div class="portfolio-wrapper">
-        <div class="grid"></div>
       </div>
     </section>
     <section id="contact">
@@ -224,9 +236,6 @@
         <a target="_blank" href="https://www.linkedin.com/in/gabrielscdev/">
           <img src="./img/linkedin-svgrepo-com.svg" alt="Ícone do Linkedin" />
         </a>
-        <a target="_blank" href="https://www.instagram.com/gscolombo404/"
-          ><img src="./img/instagram-svgrepo-com.svg" alt="Ícone do Instagram"
-        /></a>
       </div>
     </footer>
     <script type="module" src="main.bundle.js"></script>

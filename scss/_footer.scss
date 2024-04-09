@@ -1,5 +1,5 @@
 footer {
-  background-color: #000000ee;
+  background-color: #000000aa;
   .bar {
     @include bar;
     @include mq('desktop') {
@@ -20,9 +20,9 @@ footer {
   }
   p {
     @include typo(14, $cwhite, 'sec');
-    padding: 30px 0 15px 0;
+    padding: 15px 0;
     &:last-of-type {
-      padding: 0 0 30px 0;
+      padding: 0 0 15px 0;
     }
     @include mq('desktop') {
       @include typo(18, $cwhite, 'sec');

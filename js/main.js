@@ -1,37 +1,24 @@
-import bg from 'poly-bg';
 import mobileMenu from './modules/mobileMenu.js';
 import initVueGrid from './vue/index.js';
 import sendMail from './modules/sendMail.js';
 import navMenu from './modules/navMenu.js';
-import { getGPUTier } from 'detect-gpu';
+import bg from './modules/bg.js';
+import writer from './modules/writer.js';
 
 /** Public site functions **/
 if (location.pathname == '/') {
-  // document
-  //   .querySelectorAll('img')
-  //   .forEach((img) =>
-  //     img.hasAttribute('loading') ? null : img.setAttribute('loading', 'lazy')
-  //   );
-
   window.onload = () => {
     const html = document.querySelector('html');
+    bg(innerWidth, innerHeight);
 
     const loadingScreen = document.querySelector('div.loading');
-    loadingScreen.querySelector('p').textContent =
-      'Realizando benchmark da GPU...';
-    getGPUTier({ failIfMajorPerformanceCaveat: true }).then((result) => {
-      // Set cool background
-      if (result.tier == 3) {
-        bg('bg', 4, 4, html.clientWidth, html.clientHeight, true);
-      } else {
-        bg('bg', 4, 4, html.clientWidth, html.clientHeight, false);
-      }
-      // Inactive loading screen
-      loadingScreen.classList.add('concluded');
-    });
+    loadingScreen.classList.add('concluded');
 
     // Reset body scrolling
     document.body.style.overflowY = '';
+
+    // Start writing in panel
+    writer();
 
     // Initialize vue grid
     initVueGrid();

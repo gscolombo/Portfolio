@@ -19,12 +19,19 @@ section#about {
       max-width: 100%;
     }
   }
+  a {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    @include typo(18, $cwhite, 'sec');
+    text-decoration: none;
+  }
   ul {
     display: flex;
     flex-direction: column;
     max-width: 80%;
     margin: 20px auto 0 auto;
-    gap: 36px;
+    gap: 18px;
     li {
       align-items: center;
       @include typo(24, $cwhite, 'sec');

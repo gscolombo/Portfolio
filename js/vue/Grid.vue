@@ -100,7 +100,6 @@ export default {
       <iframe
         @load="iframeLoaded = true"
         :src="workSelected.iframeLink"
-        scrolling="no"
       ></iframe>
     </div>
     <div class="info-wrapper">

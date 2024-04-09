@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Clacon2";
+  src:
+      local("Clacon2"),
+      url("assets/fonts/clacon2/clacon2.ttf")
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,8 +38,8 @@ body {
     backdrop-filter: blur(1px);
   }
   canvas {
-    min-width: 120vw;
-    overflow: none;
+    transform: scale(1.25);
+    filter: blur(2px) brightness(0.5);
   }
 }
 

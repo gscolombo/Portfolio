@@ -29,11 +29,11 @@ export default () => {
     // Set navigation bar style transition
     if (scrollY > innerHeight / 4) {
       nav.classList.add('active');
-      navHeight = nav.clientHeight;
     } else {
       nav.classList.remove('active');
-      navHeight = nav.clientHeight;
     }
+    navHeight = nav.clientHeight;
+
 
     // Monitor sections and activate according to scroll position
     [section, index] = activeSection(0.08);

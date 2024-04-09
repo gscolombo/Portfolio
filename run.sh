@@ -1,0 +1,1 @@
+npm run webpackDev & npm run sass & netlify dev && wait

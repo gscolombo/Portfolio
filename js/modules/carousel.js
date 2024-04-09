@@ -45,7 +45,8 @@ export default function carousel() {
   let currentDistance = distances[1];
 
   /** Initial slide state settings */
-  const transition = 'all 0.25s ease-out'; // Smooth transition to be applied when displayed item is changed
+  const transition = 'transform 0.25s ease-out'; // Smooth transition to be applied when displayed item is changed
+  slide.style.transition = 'none'; // Initial transition property value
   slide.style.transform = `translate3d(${-currentDistance}px, 0, 0)`; // Set initial grid position
   items[1].classList.add('on'); // Set "on" class to initially displayed item
 
@@ -110,12 +111,14 @@ export default function carousel() {
         );
 
         items[currentPositionIndex].style.transition = 'none';
-        items[currentPositionIndex].style.transform = `scale(${
+        items[currentPositionIndex].style.transform = `scale3d(${
           0.8 + 0.2 * sizeFactor
-        })`;
+        }, ${
+          0.8 + 0.2 * sizeFactor
+        }, 1)`;
 
         // Move slide by adding distance traveled to current translation distance
-        slide.style.transform = `translateX(${-currentDistance - distance}px)`;
+        slide.style.transform = `translate3d(${-currentDistance - distance}px, 0, 0)`;
       },
 
       { signal: signal }
@@ -148,7 +151,7 @@ export default function carousel() {
               items.forEach((item) => (item.style.pointerEvents = 'none')); // Disable interactions with the slide
               setTimeout(() => {
                 currentDistance = distances[n - 2]; //  Set current distance to the real last item
-                slide.style.transform = `translateX(${-currentDistance}px)`; // Translate the slide
+                slide.style.transform = `translate3d(${-currentDistance}px, 0, 0)`; // Translate the slide
                 items.forEach((item) => (item.style.pointerEvents = '')); // Enable interactions with the slide
                 items[0].classList.remove('on');
               }, 250);
@@ -174,7 +177,7 @@ export default function carousel() {
               // Translate to the real last item without user notice
               setTimeout(() => {
                 currentDistance = distances[1]; //  Set current distance to the real first item
-                slide.style.transform = `translateX(${-currentDistance}px)`; // Translate the slide
+                slide.style.transform = `translate3d(${-currentDistance}px, 0, 0)`; // Translate the slide
                 items[n - 1].classList.remove('on');
               }, 250);
             } else {
@@ -188,7 +191,7 @@ export default function carousel() {
           }
         } else {
           slide.style.transition = transition; // Set smooth transition
-          slide.style.transform = `translateX(${-currentDistance}px)`;
+          slide.style.transform = `translate3d(${-currentDistance}px, 0, 0)`;
 
           setTimeout(() => {
             slide.style.transition = 'none';
@@ -208,7 +211,7 @@ export default function carousel() {
 // Function to move the slide
 function moveSlide(slide, transition, distance) {
   slide.style.transition = transition; // Set smooth transition
-  slide.style.transform = `translateX(${distance}px)`;
+  slide.style.transform = `translate3d(${distance}px, 0, 0)`;
 
   // Reset transition to none
   setTimeout(() => {
